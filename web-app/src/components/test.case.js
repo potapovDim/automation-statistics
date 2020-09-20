@@ -45,7 +45,6 @@ class TestCase extends Component {
     } = rest
 
     const classNames = classnames('test_case', className)
-
     return (
       <div className={classNames}>
         <div className="test_case_id" onClick={() => onOpen ? onOpen(rest) : this.toggleTestCaseInfo()}>Test case id: {id}</div>

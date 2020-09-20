@@ -4,15 +4,10 @@ const {getAvaliableBackUpFiles, restoreDataToStorage, getFreeBackUpFilePathName}
 const {
   BACKUP_PATH = resolve(__dirname, '../../../temp'),
   BACKUP_RUNS_FILES_PATTERN = 'runs_backup.json',
-  DEMO
 } = process.env
 
 const runstStorage = []
 
-if(DEMO) {
-  const runs = require('../../../demo/runs.json')
-  push(...runs)
-}
 
 /**
  *

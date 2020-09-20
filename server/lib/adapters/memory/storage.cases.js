@@ -5,7 +5,6 @@ const {
   BACKUP_PATH = resolve(__dirname, '../../../temp'),
   BACKUP_TEST_FILES_PATTERN = 'tests_backup.json',
   EXPECTED_CASES_COUNT = 3500,
-  DEMO
 } = process.env
 
 
@@ -21,11 +20,6 @@ const {
  * }
  */
 const testCasesStorage = []
-
-if(DEMO) {
-  const cases = require('../../../demo/tests.json')
-  push(...cases)
-}
 
 async function setToStorage(testCaseItem) {
   return new Promise((res) => res(testCasesStorage.push(testCaseItem)))

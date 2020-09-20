@@ -1,7 +1,7 @@
 import './styles/button.css'
 
-import classnames from 'classnames'
 import React, {Component} from 'react'
+import classnames from 'classnames'
 
 class Button extends Component {
   render() {
