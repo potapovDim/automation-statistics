@@ -1,0 +1,14 @@
+.btn {
+  padding: 5px;
+  margin: 5px;
+  text-align: left;
+}
+
+.btn.active {
+  border-bottom: blue;
+  font-weight: bold;
+}
+
+.regular_blue {
+  background: rgba(63, 153, 148, 0.3);
+}

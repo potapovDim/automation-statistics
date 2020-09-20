@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+playground.*
+*backup.json
+temp/*
+!temp/.temp
+.metals
+project
+target
