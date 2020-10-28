@@ -66,7 +66,7 @@ class StatisticsFlakyCases extends Component {
     const {cases} = this.props
     if(data.length) {
       const [{_model: {label}}] = data
-      pubsub.publish('modal_view', {cases: cases.filter(({id}) => id === label)})
+      pubsub.publish('modal_view', {cases: cases.filter(({caseId}) => caseId === label)})
     }
   }
 

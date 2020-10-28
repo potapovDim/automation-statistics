@@ -36,3 +36,17 @@ class ServiceWrapper {
 
 
 module.exports = new ServiceWrapper()
+
+const parent = {
+  child: {
+    walk: function() {
+
+    },
+    run: function() {
+
+    },
+    jump: function() {
+
+    }
+  }
+}

@@ -45,11 +45,11 @@ function getRangeFailedByBuild(testCases, runs) {
       .sort((a, b) => b.date - a.date)
 
     const cases = testCasesForRequiredRun.reduce((_acc, item, _, arr) => {
-      if(_acc.some(({id}) => id === item.id)) {
+      if(_acc.some(({caseId}) => caseId === item.caseId)) {
         return _acc
       }
       const historyCases = arr.filter(
-        ({id, stackTrace}) => item.id === id && item.stackTrace !== stackTrace
+        ({caseId, stackTrace}) => item.caseId === caseId && item.stackTrace !== stackTrace
       )
 
       _acc.push({...item, historyCases})
@@ -72,7 +72,7 @@ function getRangeFailedByBuild(testCases, runs) {
 
 function getRangeFailesByBuild(testCases, runStats = []) {
   const items = testCases.reduce(function(acc, testCase) {
-    const {run, id} = testCase
+    const {run, caseId} = testCase
 
     if(acc[run]) {
       acc[run].cases.push(testCase)

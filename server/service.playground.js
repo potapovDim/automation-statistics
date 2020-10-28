@@ -17,10 +17,10 @@ function prometeusFormatter(testCases, failedResonsArray) {
    * }
    */
   const firstIteration = testCases.reduce(function(acc, testCase) {
-    if(acc[testCase.id] === undefined) {
-      acc[testCase.id] = [testCase]
+    if(acc[testCase.caseId] === undefined) {
+      acc[testCase.caseId] = [testCase]
     } else {
-      acc[testCase.id].push(testCase)
+      acc[testCase.caseId].push(testCase)
     }
     return acc
   }, {})
@@ -93,7 +93,7 @@ function prometeusFormatter(testCases, failedResonsArray) {
       return escapeString(str).replace(/"/g, '\\"');
     }
     // eslint-disable-next-line
-    acc += `qa_autotest_results_total {case_id="${escapeLabelValue(testCase.id)}",branch="${escapeLabelValue(testCase.env)}",error="${escapeLabelValue(testCase.failedReason)}"} ${testCase.count}\n`
+    acc += `qa_autotest_results_total {case_id="${escapeLabelValue(testCase.caseId)}",branch="${escapeLabelValue(testCase.env)}",error="${escapeLabelValue(testCase.failedReason)}"} ${testCase.count}\n`
     return acc
   }, `# HELP qa_autotest_results_total total number of failed tests\n# TYPE qa_autotest_results_total counter\n`)
 }

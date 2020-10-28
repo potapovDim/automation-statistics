@@ -31,7 +31,7 @@ class FailedCasesList extends Component {
       .filter(commonsUtils.filterFromUndefinedOrNull)
       .sort((a, b) => b.date > a.date)
       .filter((testCase, _, arr) => {
-        const sameCases = arr.filter((_testCase) => _testCase.id === testCase.id && testCase.date !== _testCase.date)
+        const sameCases = arr.filter((_testCase) => _testCase.caseId === testCase.caseId && testCase.date !== _testCase.date)
         if(sameCases.length === 0) {return true}
         return sameCases.every((_testCase) => testCase.date > _testCase.date)
       })

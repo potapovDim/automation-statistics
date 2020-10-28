@@ -12,7 +12,7 @@ const generateEnv = () => `feature-TICKET-${getNumber(100)}`
 const getDate = () => +moment().subtract(getNumber(3), getRandomTimeName())
 
 const cases = Array(3000).fill('_').map(() => ({
-  id: `TEST_CASE_ID-${getNumber(100)}`,
+  caseId: `TEST_CASE_ID-${getNumber(100)}`,
   stackTrace: new AssertionError(`
     EXPECTATION NUMBER :${getNumber(10)},
     expect ${getNumber(30)} to not eql ${getNumber(100)}
