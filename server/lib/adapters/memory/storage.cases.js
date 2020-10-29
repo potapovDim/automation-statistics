@@ -11,7 +11,7 @@ const {
 /**
  * @example
  * {
- *   id: string,
+ *   caseId: string,
  *   run: any,
  *   date: number,
  *   stackTrace: string,

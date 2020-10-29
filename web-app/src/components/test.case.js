@@ -34,7 +34,7 @@ class TestCase extends Component {
     const {onClick, onOpen, ...rest} = this.props
 
     const {
-      id,
+      caseId,
       date,
       run,
       stack,
@@ -47,7 +47,7 @@ class TestCase extends Component {
     const classNames = classnames('test_case', className)
     return (
       <div className={classNames}>
-        <div className="test_case_id" onClick={() => onOpen ? onOpen(rest) : this.toggleTestCaseInfo()}>Test case id: {id}</div>
+        <div className="test_case_id" onClick={() => onOpen ? onOpen(rest) : this.toggleTestCaseInfo()}>Test case id: {caseId}</div>
         {isOpened &&
           <div className='test_case_body'>
             {onClick && <Button title={title} onClick={() => onClick(rest)} className="regular_blue" />}

@@ -32,8 +32,8 @@ function getFailReasons(failedReasons = {}, testCases = []) {
 }
 
 function mostFlakyCases(testCases) {
-  return testCases.reduce(function(acc, {id}) {
-    acc[id] === undefined ? (acc[id] = 1) : (acc[id]++)
+  return testCases.reduce(function(acc, {caseId}) {
+    acc[caseId] === undefined ? (acc[caseId] = 1) : (acc[caseId]++)
     return acc
   }, {})
 }
