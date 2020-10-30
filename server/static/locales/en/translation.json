@@ -1,6 +1,29 @@
 {
   "language": {
+    "lang": "Language",
     "ru": "RU",
     "en": "EN"
+  },
+  "testcase": {
+    "quantity": "Current test cases quantity"
+  },
+  "time": {
+    "time": "Time range",
+    "halfAnHour": "Half a hour",
+    "oneHour": "One hour",
+    "twoHours": "Two hours",
+    "threeHours": "Three hours",
+    "fourHours": "Four hours",
+    "oneDay": "One day",
+    "twoDays": "Two days",
+    "threeDays": "Three days"
+  },
+  "menu": {
+    "RunStatistics": "Run statistics",
+    "FailedCasesList": "Failed test cases",
+    "StatisticsFlakyCases": "Flaky cases statistics",
+    "StatisticsFailedReasons": "Failed reasons statistics",
+    "ReportConfig": "Configuration",
+    "TechnicalSpecifications": "Technical Specifications"
   }
 }

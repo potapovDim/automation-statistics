@@ -1,13 +1,13 @@
 import './styles/header.scss'
 
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {getTestCases, getRunsStatistics, getProjects} from '../server-client/actions'
-import {updateCasesList, updateRunStatistics} from '../reducers/action.creators'
-import {InformationMessage, Button} from '../components'
-import {dataFormatter} from '../utils'
-import {DropList} from '../components/drop.list'
-import {Trans, useTranslation, withTranslation} from "react-i18next";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getTestCases, getRunsStatistics, getProjects} from '../server-client/actions';
+import {updateCasesList, updateRunStatistics} from '../reducers/action.creators';
+import {InformationMessage, Button} from '../components';
+import {dataFormatter} from '../utils';
+import {DropList} from '../components/drop.list';
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 class Header extends Component {
 
@@ -33,14 +33,8 @@ class Header extends Component {
 
 
   changeLocation = (lang) => {
-    const {t, i18n} = useTranslation();
-    if(lang) {
-      i18n.changeLanguage(lang);
-    }
-
-    return {
-      t
-    }
+    const {i18n} = this.props;
+    i18n.changeLanguage(lang);
   }
 
   renderMessages = () => {
@@ -111,6 +105,7 @@ class Header extends Component {
   }
 
   render() {
+    const {t} = this.props;
     let {startDate, endDate, cases = []} = this.props
 
     const {autosync} = this.state
@@ -119,45 +114,45 @@ class Header extends Component {
       startDate = startDate ? startDate : cases[0].date
       endDate = endDate ? endDate : cases[cases.length - 1].date
     }
-    const {t} = this.props;
+
     return (
-      <nav className="header">
+      <nav className='header'>
         {this.renderMessages()}
 
-        <div className="header_information">
-          <h4>Tests count is:  <span className="test_case_count">{cases.length}</span></h4>
+        <div className='header_information'>
+          <h4>{t('testcase.quantity')} :  <span className='test_case_count'>{cases.length}</span></h4>
         </div>
 
-        <div className="header_actions">
+        <div className='header_actions'>
           <DropList
             className={'circle_white'}
             buttonClassName={'circle_white'}
-            title={'Language'}
+            title={t('language.lang')}
           >
             <div>
-              <Button title={t("language.en")} />
+              <Button title={t('language.en')} onClick={() => this.changeLocation('en')} />
             </div>
             <div>
-              <Button title={t("language.ru")} />
+              <Button title={t('language.ru')} onClick={() => this.changeLocation('ru')} />
             </div>
           </DropList>
 
           <DropList
             className={'drop_range circle_white'}
             buttonClassName={'circle_white'}
-            title={'Update data'}
+            title={t('time.time')}
             items={[
-              {name: 'Half a hour', click: () => this.getTestCaseByTime(0.5)},
-              {name: 'One hour', click: () => this.getTestCaseByTime(1)},
-              {name: 'Two hours', click: () => this.getTestCaseByTime(2)},
-              {name: 'Three hours', click: () => this.getTestCaseByTime(3)},
-              {name: 'Four hours', click: () => this.getTestCaseByTime(4)},
-              {name: 'One day', click: () => this.getTestCaseByTime(24)},
-              {name: 'Two days', click: () => this.getTestCaseByTime(48)},
-              {name: 'Three days', click: () => this.getTestCaseByTime(72)},
+              {name: t('time.halfAnHour'), click: () => this.getTestCaseByTime(0.5)},
+              {name: t('time.oneHour'), click: () => this.getTestCaseByTime(1)},
+              {name: t('time.twoHours'), click: () => this.getTestCaseByTime(2)},
+              {name: t('time.threeHours'), click: () => this.getTestCaseByTime(3)},
+              {name: t('time.fourHours'), click: () => this.getTestCaseByTime(4)},
+              {name: t('time.oneDay'), click: () => this.getTestCaseByTime(24)},
+              {name: t('time.twoDays'), click: () => this.getTestCaseByTime(48)},
+              {name: t('time.threeDays'), click: () => this.getTestCaseByTime(72)},
             ]}
           >
-            <Button title={"Resync cases"} onClick={this.resyncCases} />
+            <Button title={'Resync cases'} onClick={this.resyncCases} />
             <Button
               title={!autosync ? 'Enable autosync' : 'Disable autosync'}
               className={autosync ? 'active' : ''}

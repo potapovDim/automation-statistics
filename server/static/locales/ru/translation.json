@@ -1,6 +1,29 @@
 {
   "language": {
+    "lang": "Язык",
     "ru": "РУС",
     "en": "АНГЛ"
+  },
+  "testcase": {
+    "quantity": "Текущее количество тест кейсов"
+  },
+  "time": {
+    "time": "За период времени",
+    "halfAnHour": "Пол часа",
+    "oneHour": "Один час",
+    "twoHours": "Два часа",
+    "threeHours": "Три часа",
+    "fourHours": "Четыре часа",
+    "oneDay": "Один день",
+    "twoDays": "Два дня",
+    "threeDays": "Три дня"
+  },
+  "menu": {
+    "RunStatistics": "Статистика запусков",
+    "FailedCasesList": "Список упавших кейсов",
+    "StatisticsFlakyCases": "Статистика не стабильных кейсов",
+    "StatisticsFailedReasons": "Статиски типов падения",
+    "ReportConfig": "Конфигурация",
+    "TechnicalSpecifications": "Техническая информация"
   }
 }

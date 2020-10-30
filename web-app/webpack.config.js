@@ -86,5 +86,9 @@ module.exports = {
         {from: 'public', to: servicePath},
       ],
     }),
+    new webpack.DefinePlugin({
+      __DEV__: ENV === 'development',
+      __PROD__: ENV === 'production'
+    })
   ]
 }
