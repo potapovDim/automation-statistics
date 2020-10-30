@@ -45,7 +45,6 @@ class App extends Component {
   }
 
   render() {
-    const {config} = this.props
 
     const {content, modalData} = this.state
     const Content = contentMap[content]

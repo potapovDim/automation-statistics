@@ -1,12 +1,13 @@
 .header {
   top: 0;
   display: flex;
-  background: #85C1E9;
+  background: rgb(2, 50, 77);
   position: sticky;
+  color: white
 }
 
 .test_case_count {
-  width: 30px;
+  width: 30px;;
 }
 
 .header_information {
@@ -22,4 +23,8 @@
 .header_actions {
   display: flex;
   margin-left: auto;
+}
+
+.drop_range {
+  margin-right: 50px;
 }

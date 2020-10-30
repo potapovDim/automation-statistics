@@ -1,11 +1,12 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-// const MinifyPlugin = require("babel-minify-webpack-plugin")
+const CopyPlugin = require('copy-webpack-plugin');
 
 const {ENV} = process.env
 
+const servicePath = path.resolve(__dirname, '../server/static');
+
 function productionBuildOutput() {
-  const servicePath = path.resolve(__dirname, '../server/static')
 
   if(ENV === 'production') {
     return {
@@ -42,11 +43,13 @@ module.exports = {
     inline: true,
     liveReload: false,
     historyApiFallback: true,
+    contentBase: [
+      path.join(__dirname, 'public')
+    ],
     proxy: {
       '/': 'http://127.0.0.1:3000'
     }
   },
-
 
   module: {
     rules: [
@@ -76,8 +79,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./public/index.html"
     }),
-    // new MinifyPlugin()
+    new CopyPlugin({
+      patterns: [
+        {from: 'public', to: servicePath},
+      ],
+    }),
   ]
 }

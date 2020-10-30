@@ -7,6 +7,7 @@ import {updateCasesList, updateRunStatistics} from '../reducers/action.creators'
 import {InformationMessage, Button} from '../components'
 import {dataFormatter} from '../utils'
 import {DropList} from '../components/drop.list'
+import {Trans, useTranslation, withTranslation} from "react-i18next";
 
 class Header extends Component {
 
@@ -14,7 +15,8 @@ class Header extends Component {
     fromDateOpen: false,
     toDateOpen: false,
     autosync: false,
-    messages: []
+    messages: [],
+    currentLocation: 'en'
   }
 
   componentDidMount() {
@@ -26,6 +28,19 @@ class Header extends Component {
       })
     })
     getProjects((projects) => this.setState({...this.state, projects}))
+  }
+
+
+
+  changeLocation = (lang) => {
+    const {t, i18n} = useTranslation();
+    if(lang) {
+      i18n.changeLanguage(lang);
+    }
+
+    return {
+      t
+    }
   }
 
   renderMessages = () => {
@@ -97,13 +112,14 @@ class Header extends Component {
 
   render() {
     let {startDate, endDate, cases = []} = this.props
-    const {autosync, projects} = this.state
+
+    const {autosync} = this.state
 
     if(cases.length) {
       startDate = startDate ? startDate : cases[0].date
       endDate = endDate ? endDate : cases[cases.length - 1].date
     }
-
+    const {t} = this.props;
     return (
       <nav className="header">
         {this.renderMessages()}
@@ -113,17 +129,23 @@ class Header extends Component {
         </div>
 
         <div className="header_actions">
-          <Button title={"Resync cases"} onClick={this.resyncCases} />
-
-          <Button
-            title={!autosync ? 'Enable autosync' : 'Disable autosync'}
-            className={autosync ? 'active' : ''}
-            onClick={this.enableAutoSync}
-          />
+          <DropList
+            className={'circle_white'}
+            buttonClassName={'circle_white'}
+            title={'Language'}
+          >
+            <div>
+              <Button title={t("language.en")} />
+            </div>
+            <div>
+              <Button title={t("language.ru")} />
+            </div>
+          </DropList>
 
           <DropList
-            className={'drop_range'}
-            title={'Date range'}
+            className={'drop_range circle_white'}
+            buttonClassName={'circle_white'}
+            title={'Update data'}
             items={[
               {name: 'Half a hour', click: () => this.getTestCaseByTime(0.5)},
               {name: 'One hour', click: () => this.getTestCaseByTime(1)},
@@ -134,7 +156,14 @@ class Header extends Component {
               {name: 'Two days', click: () => this.getTestCaseByTime(48)},
               {name: 'Three days', click: () => this.getTestCaseByTime(72)},
             ]}
-          />
+          >
+            <Button title={"Resync cases"} onClick={this.resyncCases} />
+            <Button
+              title={!autosync ? 'Enable autosync' : 'Disable autosync'}
+              className={autosync ? 'active' : ''}
+              onClick={this.enableAutoSync}
+            />
+          </DropList>
         </div>
         <div>
         </div>
@@ -143,4 +172,6 @@ class Header extends Component {
   }
 }
 
-export default connect(({cases: {cases, count, startDate, endDate}}) => ({cases, count, startDate, endDate}))(Header)
+export default connect(({cases: {cases, count, startDate, endDate}}) => ({cases, count, startDate, endDate}))
+  (withTranslation()(Header))
+

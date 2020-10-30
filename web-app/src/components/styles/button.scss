@@ -12,3 +12,21 @@
 .regular_blue {
   background: rgba(63, 153, 148, 0.3);
 }
+
+.circle_white {
+  border-radius: 10%;
+  border-color: white;
+  color: white;
+}
+
+.btn.large {
+  height: 50px;
+}
+
+.btn.normal {
+  height: 40px;
+}
+
+.btn.small {
+  height: 30px;
+}

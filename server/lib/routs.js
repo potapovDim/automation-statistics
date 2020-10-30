@@ -27,6 +27,7 @@ router.get('/get-run-statistics', getRunsStatistics)
 
 router.get('/bundle*', getStaticScripts)
 router.get('/', getStaticHtml)
+router.get('/locales*', getStaticScripts)
 
 router.post('/set-report-config', setReporterConfig)
 router.get('/get-report-config', getReporterConfig)

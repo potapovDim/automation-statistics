@@ -1,7 +1,8 @@
-const path = require('path')
-const fs = require('fs')
+const path = require('path');
+const fs = require('fs');
+const mime = require('mime-types');
 
-const staticPath = path.resolve(__dirname, '../../static/')
+const staticPath = path.resolve(__dirname, '../../static/');
 
 const defaultHtmlTemplate = `
   <html lang="en">
@@ -33,23 +34,24 @@ function getWebApplication() {
   return appStatic
 }
 
-function getWebApplicationScript(pathMap) {
-  let appStaticScript = ''
-  const expectedAppScript = `${staticPath}/${pathMap}`
+function getStatic(pathMap) {
+  let appStatic = ''
+  const expetedPath = `${staticPath}/${pathMap}`
 
 
-  if(fs.existsSync(expectedAppScript)) {
-    appStaticScript += fs.readFileSync(expectedAppScript, {encoding: 'utf8'})
+  if(fs.existsSync(expetedPath)) {
+    appStatic += fs.readFileSync(expetedPath, {encoding: 'utf8'})
   } else {
-    appStaticScript += defaultScriptTemplate
+    appStatic += defaultScriptTemplate
   }
-  return appStaticScript
+  return {appStatic, contentType: mime.contentType(appStatic)}
 }
 
 function getStaticScripts(ctx) {
-  ctx.header['Content-Type'] = 'text/javascript'
-  ctx.status = 200
-  ctx.body = getWebApplicationScript(ctx.request.url)
+  const {appStatic, contentType} = getStatic(ctx.request.url);
+  ctx.header['Content-Type'] = contentType;
+  ctx.status = 200;
+  ctx.body = appStatic;
   return ctx
 }
 

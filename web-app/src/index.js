@@ -1,3 +1,5 @@
+import './i18n';
+import * as serviceWorker from "./serviceWorker";
 import React from "react"
 import ReactDOM from "react-dom"
 import {Provider} from 'react-redux'
@@ -67,5 +69,6 @@ getReportConfig()
   .then(initCases)
   .then(getRunsStatistics)
   .then(initRuns)
-  .then(renderMainApplication)
+  .then(renderMainApplication);
 
+serviceWorker.unregister();
