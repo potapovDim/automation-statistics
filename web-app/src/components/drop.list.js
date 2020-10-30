@@ -1,4 +1,4 @@
-import './styles/drop.list.css'
+import './styles/drop.list.scss'
 
 import React from 'react'
 import classnames from 'classnames'

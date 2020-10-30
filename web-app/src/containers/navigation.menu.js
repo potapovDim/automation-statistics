@@ -1,4 +1,4 @@
-import './styles/navigation.menu.css'
+import './styles/navigation.menu.scss'
 
 import React, {Component} from 'react'
 import {Button} from '../components/button'

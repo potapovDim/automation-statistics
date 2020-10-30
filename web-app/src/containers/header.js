@@ -1,4 +1,4 @@
-import './styles/header.css'
+import './styles/header.scss'
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'

@@ -1,4 +1,4 @@
-import './styles/app.css'
+import './styles/app.scss'
 
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'

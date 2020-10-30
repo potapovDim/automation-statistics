@@ -1,4 +1,4 @@
-import './styles/dot.css'
+import './styles/dot.scss'
 
 import React from 'react'
 import classnames from 'classnames'

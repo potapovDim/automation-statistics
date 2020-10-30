@@ -1,4 +1,4 @@
-import './styles/information.message.css'
+import './styles/information.message.scss'
 
 import React, {Component} from 'react'
 import classnames from 'classnames'

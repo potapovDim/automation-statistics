@@ -1,4 +1,4 @@
-import './styles/run.statistics.css'
+import './styles/run.statistics.scss'
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'

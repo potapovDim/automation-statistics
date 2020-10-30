@@ -1,4 +1,4 @@
-import './styles/test.case.css'
+import './styles/test.case.scss'
 
 import React, {Component} from 'react';
 import {Button} from './button'

@@ -1,4 +1,4 @@
-import './styles/technical.css'
+import './styles/technical.scss'
 
 import React, {Component} from 'react'
 import {Button, Dot} from '../components'

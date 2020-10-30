@@ -1,4 +1,4 @@
-import './styles/button.css'
+import './styles/button.scss'
 
 import React, {Component} from 'react'
 import classnames from 'classnames'

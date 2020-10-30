@@ -1,4 +1,4 @@
-import './styles/calendar.css'
+import './styles/calendar.scss'
 
 import React from 'react'
 import Calendar from 'react-calendar'

@@ -1,4 +1,4 @@
-import './styles/statistics.flaky.cases.css'
+import './styles/statistics.flaky.cases.scss'
 
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'

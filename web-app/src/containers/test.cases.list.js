@@ -1,4 +1,4 @@
-import './styles/test.cases.list.css'
+import './styles/test.cases.list.scss'
 
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'
