@@ -1,19 +1,23 @@
 import './i18n';
 import * as serviceWorker from "./serviceWorker";
-import React from "react"
+import React, {Suspense} from "react"
 import ReactDOM from "react-dom"
 import {Provider} from 'react-redux'
 import {updateConfig, updateCasesList, updateRunStatistics, store} from './reducers'
 import lsStore from './utils/local.storage'
-import App from "./App.js"
+import App from './App.js';
 import {getReportConfig, getTestCases, getRunsStatistics} from './server-client/actions'
+
+// const App = React.lazy(() => import('./App.js'));
 
 function renderMainApplication() {
   console.log('RENDER APPLICATION')
   ReactDOM.render(
+    // <Suspense fallback={<Spinner />}>
     <Provider store={store}>
       <App />
     </Provider>,
+    // </Suspense>,
     document.getElementById("root")
   )
 }

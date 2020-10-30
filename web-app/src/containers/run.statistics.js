@@ -1,9 +1,10 @@
 import './styles/run.statistics.scss'
 
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {BuildItem} from '../components'
-import {commonsUtils, dataFormatter} from '../utils'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {BuildItem} from '../components';
+import {commonsUtils, dataFormatter} from '../utils';
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 class RunStatistics extends Component {
 
@@ -68,4 +69,5 @@ class RunStatistics extends Component {
 }
 
 
-export default connect(({cases}) => cases)(RunStatistics)
+export default connect(({cases}) => cases)
+  (withTranslation(RunStatistics))

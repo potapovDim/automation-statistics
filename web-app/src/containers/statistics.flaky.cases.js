@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {HorizontalBar} from 'react-chartjs-2'
 import {dataFormatter} from '../utils'
 import {colorsUtils} from '../utils'
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 
 class StatisticsFlakyCases extends Component {
@@ -84,4 +85,5 @@ class StatisticsFlakyCases extends Component {
   }
 }
 
-export default connect(({cases}) => cases)(StatisticsFlakyCases)
+export default connect(({cases}) => cases)
+  (withTranslation()(StatisticsFlakyCases))

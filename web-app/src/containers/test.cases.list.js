@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {TestCase} from '../components/test.case'
 import {commonsUtils} from '../utils'
 import {dataFormatter} from '../utils'
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 class FailedCasesList extends Component {
   state = {
@@ -84,14 +85,14 @@ class FailedCasesList extends Component {
   }
 
   render() {
-    const {cases = [], config} = this.props
+    const {cases = [], config, t} = this.props
     const {groupedCases} = this.state
     return (
       <div>
         {
           cases.length && (
             <div>
-              <div>Grop test cases by</div>
+              <div>{t('testCaseList.groupBy')}</div>
               {this.renderGropTestCaseByList()}
               {!groupedCases && this.renderTestCaseList(cases)}
               {groupedCases && this.renderTestCaseListGrouped(groupedCases)}
@@ -103,4 +104,5 @@ class FailedCasesList extends Component {
   }
 }
 
-export default connect(({cases}) => ({...cases}))(FailedCasesList)
+export default connect(({cases}) => ({...cases}))
+  (withTranslation()(FailedCasesList))

@@ -5,6 +5,8 @@ import {Pie} from 'react-chartjs-2'
 import {dataFormatter} from '../utils'
 import {colorsUtils} from '../utils'
 
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
+
 let failedReasonsStructureScope = null
 
 class StatisticsFailedReasons extends Component {
@@ -56,4 +58,5 @@ class StatisticsFailedReasons extends Component {
   }
 }
 
-export default connect(({cases}) => cases)(StatisticsFailedReasons)
+export default connect(({cases}) => cases)
+  (withTranslation()(StatisticsFailedReasons))

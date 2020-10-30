@@ -62,4 +62,6 @@ class ModalWrapper extends Component {
 
 
 
-export {ModalWrapper}
+export {
+  ModalWrapper
+}

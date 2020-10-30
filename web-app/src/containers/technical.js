@@ -5,7 +5,7 @@ import {Button, Dot} from '../components'
 // import {locationStorage} from '../utils'
 import {getTechnicalInfo} from '../server-client/actions'
 import ReactJSON from 'react-json-view'
-
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 class TechnicalSpecifications extends Component {
   state = {
@@ -44,4 +44,4 @@ class TechnicalSpecifications extends Component {
   }
 }
 
-export default TechnicalSpecifications
+export default withTranslation()(TechnicalSpecifications);

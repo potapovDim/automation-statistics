@@ -18,6 +18,9 @@
     "twoDays": "Two days",
     "threeDays": "Three days"
   },
+  "testCaseList": {
+    "groupBy": "Grop test cases by"
+  },
   "menu": {
     "RunStatistics": "Run statistics",
     "FailedCasesList": "Failed test cases",

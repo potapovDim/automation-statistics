@@ -18,6 +18,9 @@
     "twoDays": "Два дня",
     "threeDays": "Три дня"
   },
+  "testCaseList": {
+    "groupBy": "Сортировать за"
+  },
   "menu": {
     "RunStatistics": "Статистика запусков",
     "FailedCasesList": "Список упавших кейсов",

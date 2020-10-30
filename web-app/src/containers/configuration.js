@@ -1,12 +1,13 @@
 import './styles/configuration.scss'
 
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {updateReportConfig} from '../server-client/actions'
-import {updateConfig} from '../reducers/action.creators'
-import {Button} from '../components/button'
-import ReactJSON from 'react-json-view'
-import lStorage from '../utils/local.storage'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {updateReportConfig} from '../server-client/actions';
+import {updateConfig} from '../reducers/action.creators';
+import {Button} from '../components/button';
+import ReactJSON from 'react-json-view';
+import lStorage from '../utils/local.storage';
+import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 const defaultConfig = {
   testCaseStructure: {},
@@ -67,4 +68,5 @@ class ReportConfig extends Component {
   }
 }
 
-export default connect(({config}) => ({config}))(ReportConfig)
+export default connect(({config}) => ({config}))
+  (withTranslation()(ReportConfig))

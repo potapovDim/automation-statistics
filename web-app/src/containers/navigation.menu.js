@@ -13,9 +13,8 @@ class NavigationMenu extends Component {
     const {toggleContent, navidationButtons} = this.props;
     return navidationButtons.map((toggler, index) => {
       return (
-        <div>
+        <div key={index}>
           <Button
-            key={index}
             className={currentView === toggler ? 'active' : ''}
             onClick={() => toggleContent(toggler)}
             title={t(`menu.${toggler}`)}
