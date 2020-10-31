@@ -18,8 +18,17 @@
     "twoDays": "Two days",
     "threeDays": "Three days"
   },
-  "testCaseList": {
-    "groupBy": "Grop test cases by"
+  "FailedCasesList": {
+    "groupBy": "Grop test cases by",
+    "testCaseHistory": "Test case history"
+  },
+  "RunStatistics": {
+    "message": "Statistics can not be provided for required perion, tests cases count is 0",
+    "totalCount": "Total count of fails",
+    "totalExecutedCases": "Total executed cases",
+    "averageFailPersentage": "Average fail persentage is",
+    "averageFailedAmount": "Average failed amount is",
+    "count": "Runs count"
   },
   "menu": {
     "RunStatistics": "Run statistics",

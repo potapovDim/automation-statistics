@@ -7,6 +7,7 @@ import {updateCasesList, updateRunStatistics} from '../reducers/action.creators'
 import {InformationMessage, Button} from '../components';
 import {dataFormatter} from '../utils';
 import {DropList} from '../components/drop.list';
+import lsStore from '../utils/local.storage'
 import {Trans, withTranslation, useTranslation} from 'react-i18next';
 
 class Header extends Component {
@@ -15,11 +16,12 @@ class Header extends Component {
     fromDateOpen: false,
     toDateOpen: false,
     autosync: false,
-    messages: [],
-    currentLocation: 'en'
+    messages: []
   }
 
+
   componentDidMount() {
+    const {i18n} = this.props;
     dataFormatter.pubSubSubscribe('buildInfo_warning', (ms, data) => {
       console.warn(ms)
       this.setState({
@@ -28,13 +30,16 @@ class Header extends Component {
       })
     })
     getProjects((projects) => this.setState({...this.state, projects}))
+    const lang = localStorage.getItem('lang')
+    if(lang) {
+      i18n.changeLanguage(lang);
+    }
   }
-
-
 
   changeLocation = (lang) => {
     const {i18n} = this.props;
     i18n.changeLanguage(lang);
+    lsStore.lsSet('lang', lang);
   }
 
   renderMessages = () => {

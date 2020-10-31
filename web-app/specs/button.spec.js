@@ -3,7 +3,7 @@ import {Button} from '../src/components/button';
 import {render, fireEvent, waitFor} from '@testing-library/react'
 import {expect} from 'assertior';
 
-test('test', () => {
+test('test', function() {
 
   const onClick = jest.fn();
 

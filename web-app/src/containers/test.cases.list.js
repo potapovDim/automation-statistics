@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import {TestCase} from '../components/test.case'
 import {commonsUtils} from '../utils'
 import {dataFormatter} from '../utils'
-import {Trans, withTranslation, useTranslation} from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 class FailedCasesList extends Component {
   state = {
@@ -28,11 +28,14 @@ class FailedCasesList extends Component {
   }
 
   renderTestCaseList = (cases) => {
+    const {t} = this.props;
     return cases
       .filter(commonsUtils.filterFromUndefinedOrNull)
       .sort((a, b) => b.date > a.date)
       .filter((testCase, _, arr) => {
-        const sameCases = arr.filter((_testCase) => _testCase.caseId === testCase.caseId && testCase.date !== _testCase.date)
+        const sameCases = arr.filter((_testCase) =>
+          _testCase.caseId === testCase.caseId && testCase.date !== _testCase.date
+        )
         if(sameCases.length === 0) {return true}
         return sameCases.every((_testCase) => testCase.date > _testCase.date)
       })
@@ -40,7 +43,7 @@ class FailedCasesList extends Component {
         <TestCase
           {...testCase}
           key={index}
-          title={"Test case history"}
+          title={t('FailedCasesList.testCaseHistory')}
           onClick={() => this.getTestCaseHistory(testCase)}
         />
       )
@@ -57,11 +60,11 @@ class FailedCasesList extends Component {
   }
 
   renderTestCaseListGrouped = (groupedTestCases) => {
-    return Object.keys(groupedTestCases).map((groupKey) =>
-      <div>
+    return Object.keys(groupedTestCases).map((groupKey, index) =>
+      (<div key={index}>
         <div className="group identifier">{groupKey}</div>
         {this.renderTestCaseList(groupedTestCases[groupKey])}
-      </div>
+      </div>)
     )
   }
 
@@ -85,14 +88,14 @@ class FailedCasesList extends Component {
   }
 
   render() {
-    const {cases = [], config, t} = this.props
+    const {cases = [], t} = this.props
     const {groupedCases} = this.state
     return (
       <div>
         {
           cases.length && (
             <div>
-              <div>{t('testCaseList.groupBy')}</div>
+              <div>{t('FailedCasesList.groupBy')}</div>
               {this.renderGropTestCaseByList()}
               {!groupedCases && this.renderTestCaseList(cases)}
               {groupedCases && this.renderTestCaseListGrouped(groupedCases)}
@@ -104,5 +107,4 @@ class FailedCasesList extends Component {
   }
 }
 
-export default connect(({cases}) => ({...cases}))
-  (withTranslation()(FailedCasesList))
+export default connect(({cases}) => ({...cases}))(withTranslation()(FailedCasesList))

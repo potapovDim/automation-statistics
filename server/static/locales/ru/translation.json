@@ -18,8 +18,17 @@
     "twoDays": "Два дня",
     "threeDays": "Три дня"
   },
-  "testCaseList": {
-    "groupBy": "Сортировать за"
+  "FailedCasesList": {
+    "groupBy": "Сортировать за",
+    "testCaseHistory": "История"
+  },
+  "RunStatistics": {
+    "message": "Статистику нету возможности предоставить, количество тест кейсов равно 0",
+    "totalCount": "Общее количество упавших тестов",
+    "totalExecutedCases": "Общее количество запущенных тестов",
+    "averageFailPersentage": "Процент упавших тестов относительно запущенных",
+    "averageFailedAmount":"Количество упавших тестов относительно запущенных",
+    "count": "Количество запусков"
   },
   "menu": {
     "RunStatistics": "Статистика запусков",

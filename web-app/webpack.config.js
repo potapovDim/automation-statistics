@@ -1,5 +1,6 @@
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require('path');
+const {DefinePlugin} = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const {ENV} = process.env
@@ -86,7 +87,7 @@ module.exports = {
         {from: 'public', to: servicePath},
       ],
     }),
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       __DEV__: ENV === 'development',
       __PROD__: ENV === 'production'
     })

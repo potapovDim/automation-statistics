@@ -8,7 +8,7 @@ function fetchyBase(method = 'POST', path, body, cb = (arg) => arg) {
   /**
    * @token will be used for future
    */
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
 
   if(host[host.length - 1] === '/') {
     host = host.replace(new RegExp(host[host.length - 1] + '$'), '')

@@ -3,7 +3,7 @@ import './styles/navigation.menu.scss';
 import React, {Component} from 'react';
 import {Button} from '../components/button';
 import {locationStorage} from '../utils';
-import {Trans, withTranslation, useTranslation} from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 class NavigationMenu extends Component {
 

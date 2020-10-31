@@ -1,6 +1,6 @@
 import './i18n';
 import * as serviceWorker from "./serviceWorker";
-import React, {Suspense} from "react"
+import React from "react"
 import ReactDOM from "react-dom"
 import {Provider} from 'react-redux'
 import {updateConfig, updateCasesList, updateRunStatistics, store} from './reducers'

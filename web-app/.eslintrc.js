@@ -1,4 +1,5 @@
 module.exports = {
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "commonjs": true,
@@ -6,7 +7,6 @@ module.exports = {
     "node": true,
     "mocha": true
   },
-
   "globals": {
     "describe:": "readonly"
   },
@@ -14,10 +14,10 @@ module.exports = {
     "ecmaVersion": 2018
   },
   "plugins": [
-    "mocha",
-    "chai-expect"
+    "mocha"
   ],
   "rules": {
+    "react/prop-types": "off",
     "no-trailing-spaces": ["error", {
       "ignoreComments": true
     }],
@@ -33,6 +33,7 @@ module.exports = {
   },
   "extends": [
     "eslint:recommended",
-    "plugin:mocha/recommended"
+    "plugin:mocha/recommended",
+    "plugin:react/recommended"
   ],
 };

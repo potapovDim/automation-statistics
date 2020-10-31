@@ -72,7 +72,7 @@ function getRangeFailedByBuild(testCases, runs) {
 
 function getRangeFailesByBuild(testCases, runStats = []) {
   const items = testCases.reduce(function(acc, testCase) {
-    const {run, caseId} = testCase
+    const {run} = testCase;
 
     if(acc[run]) {
       acc[run].cases.push(testCase)

@@ -7,7 +7,7 @@ import {updateConfig} from '../reducers/action.creators';
 import {Button} from '../components/button';
 import ReactJSON from 'react-json-view';
 import lStorage from '../utils/local.storage';
-import {Trans, withTranslation, useTranslation} from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 const defaultConfig = {
   testCaseStructure: {},
@@ -36,8 +36,9 @@ class ReportConfig extends Component {
   }
 
   syncConfig = () => {
+    const {dispatch} = this.props;
     lStorage.lsSet('config', JSON.stringify(this.state))
-    this.props.dispatch(updateConfig(this.state))
+    dispatch(updateConfig(this.state))
     return updateReportConfig({config: this.state})
   }
 
@@ -68,5 +69,4 @@ class ReportConfig extends Component {
   }
 }
 
-export default connect(({config}) => ({config}))
-  (withTranslation()(ReportConfig))
+export default connect(({config}) => ({config}))(withTranslation()(ReportConfig))

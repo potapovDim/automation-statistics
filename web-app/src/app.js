@@ -3,8 +3,8 @@ import './styles/app.scss'
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'
 import {connect} from 'react-redux'
-import {locationStorage, dataFormatter} from './utils'
-import {ModalWrapper, } from './components'
+import {locationStorage} from './utils'
+import {ModalWrapper} from './components'
 
 import {
   FailedCasesList,
