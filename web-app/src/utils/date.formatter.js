@@ -1,15 +1,15 @@
-import moment from 'moment'
+import dayjs from 'moment'
 
 function fromNumberToMDY(dateNumber) {
-  return moment(dateNumber).format('MMM Do YY')
+  return dayjs(dateNumber).format('MMM Do YY')
 }
 
 function fromNumberToDateObject(dateNumber) {
-  return moment(dateNumber).toDate()
+  return dayjs(dateNumber).toDate()
 }
 
 function fromMDYToDateObj(dateDMY) {
-  return moment(dateDMY, 'MMM Do YY').toDate()
+  return dayjs(dateDMY, 'MMM Do YY').toDate()
 }
 
 export default {

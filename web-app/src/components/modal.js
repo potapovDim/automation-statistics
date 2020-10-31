@@ -2,8 +2,13 @@ import './styles/modal.scss'
 
 import React, {Component} from 'react'
 import Modal from 'react-modal'
-import {Button} from '../base/button'
-import {TestCase} from './test.case'
+
+import {Button} from '../elements/button'
+
+
+
+
+import {TestCaseItem} from './test.case.item'
 import {Pie} from 'react-chartjs-2'
 import {dataFormatter} from '../utils'
 import {colorsUtils} from '../utils'
@@ -11,9 +16,8 @@ import {colorsUtils} from '../utils'
 class ModalWrapper extends Component {
 
   renderTestCaseList = () => {
-    const {cases} = this.props
-
-    return cases.map((testCase, index) => <TestCase key={index} {...testCase} title={"Test case history"} />)
+    const {cases} = this.props;
+    return cases.map((testCase, index) => <TestCaseItem key={index} {...testCase} title={"Test case history"} />)
   }
 
   getFailedReasonsPie = () => {
@@ -35,32 +39,30 @@ class ModalWrapper extends Component {
   }
 
   render() {
-    const {askToClose, pie, cases, isOpen, Content} = this.props
+    const {askToClose, pie, cases, isOpen} = this.props;
     return (
       <Modal isOpen={isOpen} ariaHideApp={false}>
-
-        <div className="modal_header">
-          {!!askToClose && <Button onClick={askToClose} title={'Close'} />}
-        </div>
-
-        <div className="modal_main">
-
-          <div className="modal_content">
-            {!!Content && <Content />}
-            {!!cases && this.renderTestCaseList()}
+        <div className="modal_component">
+          <div className="modal_header">
+            {!!askToClose && <Button onClick={askToClose} title={'Close'} />}
           </div>
 
+          <div className="modal_main">
 
-          <div className="modal_info">
-            {!!pie && <Pie {...pie} data={this.getFailedReasonsPie()} />}
+            <div className="modal_content">
+              {cases && this.renderTestCaseList()}
+            </div>
+
+
+            <div className="modal_info">
+              {!!pie && <Pie {...pie} data={this.getFailedReasonsPie()} />}
+            </div>
           </div>
         </div>
       </Modal>
     )
   }
 }
-
-
 
 export {
   ModalWrapper

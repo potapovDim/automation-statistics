@@ -3,7 +3,7 @@ import './styles/test.cases.list.scss'
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'
 import {connect} from 'react-redux'
-import {TestCase} from '../components/test.case'
+import {TestCaseItem} from '../components/test.case.item'
 import {commonsUtils} from '../utils'
 import {dataFormatter} from '../utils'
 import {withTranslation} from 'react-i18next';
@@ -15,14 +15,13 @@ class FailedCasesList extends Component {
   }
 
   getTestCaseHistory = (currentTestCase) => {
-    const {cases = [], config: {historyBy = 'id'} = {}} = this.props
-
+    const {cases = [], config: {historyBy = 'caseId'} = {}} = this.props
+    console.log(historyBy)
     pubsub.publish('modal_view', {
       ...this.props,
       pie: true,
       cases: cases.filter(commonsUtils.filterFromUndefinedOrNull)
         .filter((testCase) => testCase[historyBy] === currentTestCase[historyBy]),
-
     })
 
   }
@@ -40,7 +39,7 @@ class FailedCasesList extends Component {
         return sameCases.every((_testCase) => testCase.date > _testCase.date)
       })
       .map((testCase, index) =>
-        <TestCase
+        <TestCaseItem
           {...testCase}
           key={index}
           title={t('FailedCasesList.testCaseHistory')}

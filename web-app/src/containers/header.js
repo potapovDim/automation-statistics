@@ -2,11 +2,11 @@ import './styles/header.scss'
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {InformationMessage, Button} from '../elements';
+import {DropList} from '../components/drop.list';
 import {getTestCases, getRunsStatistics, getProjects} from '../server-client/actions';
 import {updateCasesList, updateRunStatistics} from '../reducers/action.creators';
-import {InformationMessage, Button} from '../components';
 import {dataFormatter} from '../utils';
-import {DropList} from '../components/drop.list';
 import lsStore from '../utils/local.storage'
 import {withTranslation} from 'react-i18next';
 

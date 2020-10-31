@@ -1,7 +1,7 @@
 import './styles/navigation.menu.scss';
 
 import React, {Component} from 'react';
-import {Button} from '../base/button';
+import {Button} from '../elements/button';
 import {locationStorage} from '../utils';
 import {withTranslation} from 'react-i18next';
 

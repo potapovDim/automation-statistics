@@ -4,14 +4,6 @@
     "ru": "RU",
     "en": "EN"
   },
-  "testcase": {
-    "quantity": "Current test cases quantity",
-    "caseId": "Test case id"
-  },
-  "BuildItem": {
-    "status": "Run status is",
-    "warinig": "WARNING: this build does not have enough information, builds results will not take part in common statistics"
-  },
   "time": {
     "time": "Time range",
     "halfAnHour": "Half a hour",
@@ -22,6 +14,14 @@
     "oneDay": "One day",
     "twoDays": "Two days",
     "threeDays": "Three days"
+  },
+  "testcase": {
+    "quantity": "Current test cases quantity",
+    "caseId": "Test case id"
+  },
+  "BuildItem": {
+    "status": "Run status is",
+    "warinig": "WARNING: this build does not have enough information, builds results will not take part in common statistics"
   },
   "FailedCasesList": {
     "groupBy": "Grop test cases by",

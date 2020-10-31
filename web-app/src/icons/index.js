@@ -1,7 +1,2 @@
-import {ArrowDown} from './arrow.down'
-import {ArrowUp} from './arrow.up'
-
-export {
-  ArrowDown,
-  ArrowUp
-}
+export * from './arrow.down';
+export * from './arrow.up';

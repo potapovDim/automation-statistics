@@ -3,11 +3,11 @@ import './styles/build.item.scss'
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'
 import {ArrowDown, ArrowUp} from '../icons'
-import {Dot} from '../base/dot'
-import {TestCase} from './test.case'
+import {Dot} from '../elements/dot'
+import {TestCaseItem} from './test.case.item'
 import classnames from 'classnames'
 
-class BuildItem extends Component {
+class ExecutionItem extends Component {
   state = {
     isOpened: false,
     caseInfo: null
@@ -35,7 +35,7 @@ class BuildItem extends Component {
     const {caseInfo} = this.state;
     const {t} = this.props;
     if(caseInfo) {
-      return (<TestCase
+      return (<TestCaseItem
         {...caseInfo}
         isOpened={true}
         onClick={caseInfo.historyCases.length ? this.openCaseHistory : undefined}
@@ -47,7 +47,7 @@ class BuildItem extends Component {
   renderTestCasesList = () => {
     const {cases} = this.props
 
-    return cases.map((testCase, index) => <TestCase
+    return cases.map((testCase, index) => <TestCaseItem
       {...testCase}
       onOpen={this.openTestCaseInfo}
       key={index}
@@ -94,5 +94,5 @@ class BuildItem extends Component {
 }
 
 export {
-  BuildItem
+  ExecutionItem
 }
