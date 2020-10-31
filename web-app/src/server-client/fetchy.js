@@ -1,7 +1,5 @@
-// polifill
-import 'whatwg-fetch'
-import {commonsUtils} from '../utils'
-import lStorage from '../utils/local.storage'
+import {commonsUtils} from '../utils';
+import lStorage from '../utils/local.storage';
 
 function fetchyBase(method = 'POST', path, body, cb = (arg) => arg) {
   let host = lStorage.lsGet('config') && lStorage.lsGet('config').serverHost || window.origin

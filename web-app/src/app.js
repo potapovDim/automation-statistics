@@ -55,13 +55,17 @@ class App extends Component {
   }
 
   render() {
-
+    const {t} = this.props;
     const {content, modalData} = this.state
     const Content = contentMap[content]
 
     return (
       <div className="report-service-app">
-        <ModalWrapper {...modalData} askToClose={() => this.setState({...this.state, modalData: null})} />
+        <ModalWrapper
+          t={t}
+          askToClose={() => this.setState({...this.state, modalData: null})}
+          {...modalData}
+        />
         <div className="report-service-header">
           <Header />
         </div>

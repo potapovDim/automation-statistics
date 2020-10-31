@@ -1,7 +1,7 @@
 import './styles/technical.scss'
 
 import React, {Component} from 'react'
-import {Button, Dot} from '../components'
+import {Button, Dot} from '../elements'
 // import {locationStorage} from '../utils'
 import {getTechnicalInfo} from '../server-client/actions'
 import ReactJSON from 'react-json-view'

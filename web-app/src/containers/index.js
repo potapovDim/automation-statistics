@@ -1,6 +1,6 @@
 import ReportConfig from './configuration'
 import Header from './header'
-import NavigationMenu from './navigation.menu'
+import NavigationMenu from '../components/navigation.menu'
 import RunStatistics from './run.statistics'
 import StatisticsFailedReasons from './statistics.failed.reasons'
 import StatisticsFlakyCases from './statistics.flaky.cases'

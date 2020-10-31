@@ -1,7 +1,7 @@
 import './styles/test.case.scss'
 
 import React, {Component} from 'react';
-import {Button} from '../base/button';
+import {Button} from '../elements/button';
 import {dateFormatter} from '../utils';
 import classnames from 'classnames';
 
@@ -16,7 +16,7 @@ import classnames from 'classnames';
 /**
  * @returns {body: object<{isAutoApproveUploads: boolean}>}
  */
-class TestCase extends Component {
+class TestCaseItem extends Component {
 
   state = {
     isOpened: false
@@ -47,7 +47,9 @@ class TestCase extends Component {
     const classNames = classnames('test_case', className)
     return (
       <div className={classNames}>
-        <div className="test_case_id" onClick={() => onOpen ? onOpen(rest) : this.toggleTestCaseInfo()}>Test case id: {caseId}</div>
+        <div
+          className="test_case_id"
+          onClick={() => onOpen ? onOpen(rest) : this.toggleTestCaseInfo()}>Test case id: {caseId}</div>
         {isOpened &&
           <div className='test_case_body'>
             {onClick && <Button title={title} onClick={() => onClick(rest)} className="regular_blue" />}
@@ -63,5 +65,5 @@ class TestCase extends Component {
 }
 
 export {
-  TestCase
+  TestCaseItem
 }

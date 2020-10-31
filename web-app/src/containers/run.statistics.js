@@ -2,7 +2,7 @@ import './styles/run.statistics.scss'
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {BuildItem} from '../components';
+import {ExecutionItem} from '../components';
 import {commonsUtils, dataFormatter} from '../utils';
 import {withTranslation} from 'react-i18next';
 
@@ -51,7 +51,7 @@ class RunStatistics extends Component {
         </div>
         {
           Object.keys(buildsStatistics).map((runNumber, index) =>
-            <BuildItem {...buildsStatistics[runNumber]} key={index} isSuccess={this.getBuildResult} t={t} />
+            <ExecutionItem {...buildsStatistics[runNumber]} key={index} isSuccess={this.getBuildResult} t={t} />
           )
         }
       </div>
