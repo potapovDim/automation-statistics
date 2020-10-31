@@ -1,7 +1,7 @@
-import './styles/dot.scss'
+import './styles/dot.scss';
 
-import React from 'react'
-import classnames from 'classnames'
+import React from 'react';
+import classnames from 'classnames';
 
 const Dot = ({className = ''}) => {
   const classNames = classnames('dot', className)

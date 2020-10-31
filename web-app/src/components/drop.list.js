@@ -2,7 +2,7 @@ import './styles/drop.list.scss'
 
 import React from 'react'
 import classnames from 'classnames'
-import {Button} from './button'
+import {Button} from '../base/button'
 
 const DropList = ({title, items = [], className, children, buttonClassName}) => {
   const classNames = classnames('dropdown', className);

@@ -5,7 +5,12 @@
     "en": "EN"
   },
   "testcase": {
-    "quantity": "Current test cases quantity"
+    "quantity": "Current test cases quantity",
+    "caseId": "Test case id"
+  },
+  "BuildItem": {
+    "status": "Run status is",
+    "warinig": "WARNING: this build does not have enough information, builds results will not take part in common statistics"
   },
   "time": {
     "time": "Time range",
@@ -37,5 +42,11 @@
     "StatisticsFailedReasons": "Failed reasons statistics",
     "ReportConfig": "Configuration",
     "TechnicalSpecifications": "Technical Specifications"
+  },
+  "components": {
+    "close": "Close",
+    "hide": "Hide",
+    "success": "Success",
+    "fail": "Fail"
   }
 }

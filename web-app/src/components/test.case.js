@@ -1,9 +1,9 @@
 import './styles/test.case.scss'
 
 import React, {Component} from 'react';
-import {Button} from './button'
-import {dateFormatter, fromNumberToMDY} from '../utils'
-import classnames from 'classnames'
+import {Button} from '../base/button';
+import {dateFormatter} from '../utils';
+import classnames from 'classnames';
 
 /**
  *  @example {
@@ -42,7 +42,7 @@ class TestCase extends Component {
       env,
       title = 'Action button',
       className = ''
-    } = rest
+    } = rest;
 
     const classNames = classnames('test_case', className)
     return (

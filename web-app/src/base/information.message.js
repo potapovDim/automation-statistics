@@ -1,12 +1,12 @@
-import './styles/information.message.scss'
+import './styles/information.message.scss';
 
-import React, {Component} from 'react'
-import classnames from 'classnames'
+import React from 'react';
+import classnames from 'classnames';
 
 const InformationMessage = ({message, className = '', onClick}) => {
   const classNames = classnames('message', className)
   return (
-    <div className="alert">
+    <div className={classNames}>
       <span className="closebtn" onClick={onClick}>&times;</span>
       {message}
     </div>

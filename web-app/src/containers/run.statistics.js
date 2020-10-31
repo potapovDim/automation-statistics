@@ -51,7 +51,7 @@ class RunStatistics extends Component {
         </div>
         {
           Object.keys(buildsStatistics).map((runNumber, index) =>
-            <BuildItem {...buildsStatistics[runNumber]} key={index} isSuccess={this.getBuildResult} />
+            <BuildItem {...buildsStatistics[runNumber]} key={index} isSuccess={this.getBuildResult} t={t} />
           )
         }
       </div>

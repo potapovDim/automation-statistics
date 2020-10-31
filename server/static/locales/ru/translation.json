@@ -37,5 +37,9 @@
     "StatisticsFailedReasons": "Статиски типов падения",
     "ReportConfig": "Конфигурация",
     "TechnicalSpecifications": "Техническая информация"
+  },
+  "components": {
+    "close": "Закрыть",
+    "hide": "Спрятать"
   }
 }

@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {updateReportConfig} from '../server-client/actions';
 import {updateConfig} from '../reducers/action.creators';
-import {Button} from '../components/button';
+import {Button} from '../base/button';
 import ReactJSON from 'react-json-view';
 import lStorage from '../utils/local.storage';
 import {withTranslation} from 'react-i18next';

@@ -37,5 +37,9 @@
     "StatisticsFailedReasons": "Failed reasons statistics",
     "ReportConfig": "Configuration",
     "TechnicalSpecifications": "Technical Specifications"
+  },
+  "components": {
+    "close": "Close",
+    "hide": "Hide"
   }
 }

@@ -8,7 +8,7 @@ import {InformationMessage, Button} from '../components';
 import {dataFormatter} from '../utils';
 import {DropList} from '../components/drop.list';
 import lsStore from '../utils/local.storage'
-import {Trans, withTranslation, useTranslation} from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 class Header extends Component {
 
@@ -21,7 +21,6 @@ class Header extends Component {
 
 
   componentDidMount() {
-    const {i18n} = this.props;
     dataFormatter.pubSubSubscribe('buildInfo_warning', (ms, data) => {
       console.warn(ms)
       this.setState({
@@ -29,11 +28,7 @@ class Header extends Component {
         messages: [...this.state.messages, data]
       })
     })
-    getProjects((projects) => this.setState({...this.state, projects}))
-    const lang = localStorage.getItem('lang')
-    if(lang) {
-      i18n.changeLanguage(lang);
-    }
+    getProjects((projects) => this.setState({...this.state, projects}));
   }
 
   changeLocation = (lang) => {
@@ -110,15 +105,14 @@ class Header extends Component {
   }
 
   render() {
-    const {t} = this.props;
-    let {startDate, endDate, cases = []} = this.props
-
+    const {t, cases = []} = this.props
     const {autosync} = this.state
 
-    if(cases.length) {
-      startDate = startDate ? startDate : cases[0].date
-      endDate = endDate ? endDate : cases[cases.length - 1].date
-    }
+    // TODO this approach will be updated
+    // if(cases.length) {
+    //   startDate = startDate ? startDate : cases[0].date
+    //   endDate = endDate ? endDate : cases[cases.length - 1].date
+    // }
 
     return (
       <nav className='header'>
@@ -172,6 +166,5 @@ class Header extends Component {
   }
 }
 
-export default connect(({cases: {cases, count, startDate, endDate}}) => ({cases, count, startDate, endDate}))
-  (withTranslation()(Header))
+export default connect(({cases}) => ({...cases}))(withTranslation()(Header))
 

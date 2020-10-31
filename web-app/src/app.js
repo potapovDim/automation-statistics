@@ -1,10 +1,13 @@
-import './styles/app.scss'
+import './styles/app.scss';
 
-import React, {Component} from 'react'
-import pubsub from 'pubsub-js'
-import {connect} from 'react-redux'
-import {locationStorage} from './utils'
-import {ModalWrapper} from './components'
+import React, {Component} from 'react';
+import pubsub from 'pubsub-js';
+import {connect} from 'react-redux';
+import {locationStorage} from './utils';
+import {ModalWrapper} from './components';
+import lsStore from './utils/local.storage';
+
+import {withTranslation} from 'react-i18next';
 
 import {
   FailedCasesList,
@@ -31,6 +34,14 @@ class App extends Component {
   state = {
     content: locationStorage.getLocationHash() || 'RunStatistics'
   }
+  // TODO this approach can be improved
+  UNSAFE_componentWillMount() {
+    const {i18n} = this.props;
+    const lang = lsStore.lsGet('lang');
+    if(lang) {
+      i18n.changeLanguage(lang);
+    }
+  }
 
   toggleContent = (name) => {
     this.setState({content: name})
@@ -39,7 +50,6 @@ class App extends Component {
 
   componentDidMount() {
     pubsub.subscribe('modal_view', (ms, modalData) => {
-      console.info(ms)
       this.setState({...this.state, modalData: {...modalData, isOpen: true}})
     })
   }
@@ -78,4 +88,4 @@ class App extends Component {
   }
 }
 
-export default connect(({cases: {config}}) => ({config}))(App)
+export default connect(({cases: {config}}) => ({config}))(withTranslation()(App))

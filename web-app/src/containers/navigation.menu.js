@@ -1,7 +1,7 @@
 import './styles/navigation.menu.scss';
 
 import React, {Component} from 'react';
-import {Button} from '../components/button';
+import {Button} from '../base/button';
 import {locationStorage} from '../utils';
 import {withTranslation} from 'react-i18next';
 
@@ -25,9 +25,10 @@ class NavigationMenu extends Component {
   }
 
   render() {
+    const {t} = this.props;
     return (
       <div className="navigation-menu-internal-content">
-        <Button title={'Hide'}/>
+        <Button title={t('components.hide')} />
         {this.renderMenu()}
       </div>
     )

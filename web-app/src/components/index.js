@@ -1,10 +1,10 @@
 import {BuildItem} from './build.item'
 import {TestCase} from './test.case'
 import {ReporterCalendar} from './calendar'
-import {Button} from './button'
-import {InformationMessage} from './information.message'
+import {Button} from '../base/button'
+import {InformationMessage} from '../base/information.message'
 import {ModalWrapper} from './modal'
-import {Dot} from './dot'
+import {Dot} from '../base/dot'
 
 export {
   Dot,

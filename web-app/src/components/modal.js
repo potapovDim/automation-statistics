@@ -2,7 +2,7 @@ import './styles/modal.scss'
 
 import React, {Component} from 'react'
 import Modal from 'react-modal'
-import {Button} from './button'
+import {Button} from '../base/button'
 import {TestCase} from './test.case'
 import {Pie} from 'react-chartjs-2'
 import {dataFormatter} from '../utils'

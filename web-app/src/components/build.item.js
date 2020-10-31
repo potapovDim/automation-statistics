@@ -3,7 +3,7 @@ import './styles/build.item.scss'
 import React, {Component} from 'react'
 import pubsub from 'pubsub-js'
 import {ArrowDown, ArrowUp} from '../icons'
-import {Dot} from './dot'
+import {Dot} from '../base/dot'
 import {TestCase} from './test.case'
 import classnames from 'classnames'
 
@@ -32,15 +32,15 @@ class BuildItem extends Component {
   }
 
   renderTestCaseInfo = () => {
-    const {caseInfo} = this.state
-
+    const {caseInfo} = this.state;
+    const {t} = this.props;
     if(caseInfo) {
       return (<TestCase
         {...caseInfo}
         isOpened={true}
         onClick={caseInfo.historyCases.length ? this.openCaseHistory : undefined}
-        title={'Test case history'}
-      />)
+        title={t('FailedCasesList.testCaseHistory')}
+      />);
     }
   }
 
@@ -52,18 +52,18 @@ class BuildItem extends Component {
       onOpen={this.openTestCaseInfo}
       key={index}
       className={'small_case'}
-    />)
+    />);
   }
 
   renderDescriptor = () => {
-    const {isOpened} = this.state
+    const {isOpened} = this.state;
     return isOpened ? <ArrowUp size={25} /> : <ArrowDown size={25} />
   }
 
   render() {
-    const {isOpened} = this.state
-    const {run, count, cases, isSuccess, runStatus} = this.props
-    const classNames = classnames('build_item', !count ? 'warning' : '')
+    const {isOpened} = this.state;
+    const {run, count, cases, isSuccess, runStatus, t} = this.props;
+    const classNames = classnames('build_item', !count ? 'warning' : '');
 
     return (
       <div className={classNames}>
@@ -73,8 +73,8 @@ class BuildItem extends Component {
 
         {isOpened &&
           <div>
-            <div>Run status is: {isSuccess(runStatus) ? 'success' : 'fail'}</div>
-            {!count && <h3>WARNING: this build does not have enough information, builds results will not take part in common statistics</h3>}
+            <div>{t('BuildItem.status')}: {isSuccess(runStatus) ? 'success' : 'fail'}</div>
+            {!count && <h3>{t('BuildItem.status')}</h3>}
             {!!count &&
               <div>
                 <div>Executed cases in build: {count}</div>
